@@ -19,4 +19,18 @@
         });
     });
 
+    // Makes it possible to skip between slider images if they have links, using the tab button
+    var swiper = new Swiper('.js__img-slider');
+    $('.img-slider')[0].addEventListener('focus', function (e) {
+        //Index of focused slide
+        var focusIndex = $(e.target).parents('.swiper-slide').index();
+        //Reset scrollLeft set by browser on focus
+        $('.swiper-container')[0].scrollLeft = 0;
+        setTimeout(function(){
+            $('.swiper-container')[0].scrollLeft = 0;
+        },0);
+        //Slide to focused slide
+        swiper.slideTo(focusIndex);
+    }, true);
+
 })(jQuery);
