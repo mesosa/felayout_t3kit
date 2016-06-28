@@ -4,8 +4,14 @@
     </button>
 {{/is}}
 
+{{#if this.dropdownMenu}}
+<nav class="main-navigation js__main-navigation _main-navigation-dropdown">
+{{else}}
 <nav class="main-navigation js__main-navigation">
+{{/if}}
+
     <div class="main-navigation__items-wrp js__navigation__items-wrp">
+
         <ul class="main-navigation__items-list js__main-navigation__items-list">
 
             {{!add navigation data}}
@@ -14,6 +20,7 @@
 
             {{!display main menu}}
             {{!grunt/helpers/helper-mainMenu_firstLevel.js) }}
+
             {{~#mainMenu_firstLevel pages~}}
 
                 {{!if subpages exists}}
@@ -30,9 +37,28 @@
                         {{~else~}}
                             <a  href="{{data.externalLink}}" class="main-navigation__item-link js__main-navigation__item-link" >{{data.title}}</a>
                         {{~/is~}}
-                        <a href="{{basename}}.html" class="main-navigation__open-sub-menu-link js__main-navigation__open-sub-menu-link">Open</a>
+                        {{#if ../../this.dropdownMenu}}
+                            <div class="tablet-arrow">
+                        {{else}}
 
+                        {{/if}}
+                        <a href="{{basename}}.html" class="main-navigation__open-sub-menu-link js__main-navigation__open-sub-menu-link">Open</a>
+                        {{#if ../../this.dropdownMenu}}
+                            </div>
+                        {{else}}
+
+                        {{/if}}
+                        {{#if ../../this.dropdownMenu}}
+                        <div class="dropdown_menu">
+                           <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <ul class="main-navigation__sub-item-list _sub">
+
+                        {{else}}
                         <ul class="main-navigation__sub-item-list">
+
+                        {{/if}}
 
                             {{!build sub menu level 2}}
                             {{!grunt/helpers/helper-submenu.js}}
@@ -52,6 +78,14 @@
                             {{~/subMenu~}}
 
                         </ul>
+                        {{#if ../../this.dropdownMenu}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div >
+                        {{else}}
+
+                        {{/if}}
                     </li>
 
                 {{!if no subpages}}
