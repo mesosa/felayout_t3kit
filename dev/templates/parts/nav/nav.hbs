@@ -74,8 +74,29 @@
                                     {{~else~}}
                                         <a class="main-navigation__sub-item-link" href="{{data.externalLink}}">{{data.title}}</a>
                                     {{~/is~}}
+                                    {{#if ../../../this.dropdownMenu}}
+
+                                    {{~#subMenu ../../../../pages 3~}}
+                                        <li class="main-navigation__sub-item {{#if this.isCurrentPage}} _active{{/if}}
+                                        {{!add "active" class if some of children also active}}
+                                        {{! grunt/helpers/helper-ifChildrensActive_addClass.js}}
+                                        {{~#ifChildrensActive_addClass ../../../../../pages ~}}
+                                            _active
+                                        {{~/ifChildrensActive_addClass~}}">
+                                            {{~#is data.externalLink false~}}
+                                                <a class="main-navigation__sub-item-link" href="{{basename}}.html">{{data.title}}</a>
+                                            {{~else~}}
+                                                <a class="main-navigation__sub-item-link" href="{{data.externalLink}}">{{data.title}}</a>
+                                            {{~/is~}}
+
+                                        </li>
+                                    {{~/subMenu~}}
+                                    {{else}}
+
+                                    {{/if}}
                                 </li>
                             {{~/subMenu~}}
+
 
                         </ul>
                         {{#if ../../this.dropdownMenu}}
