@@ -37,11 +37,11 @@ jQuery(function($) {
         e.preventDefault();
         // if (touchSupport && $(window).width() > 992) {
         if ($(window).width() > 992) {
-            $mainNavigationItemsList.not($(this).parent()).removeClass('_open-tablet-dropdown');
-            $(this).parent('.main-navigation__item').toggleClass('_open-tablet-dropdown');
+            $mainNavigationItemsList.not($(this).parents()).removeClass('_open-tablet-dropdown');
+            $(this).parents('.main-navigation__item').toggleClass('_open-tablet-dropdown');
         }
         if ($(window).width() < 992) {
-            $(this).parent('.main-navigation__item').toggleClass('_open-mobile-dropdown');
+            $(this).parents('.main-navigation__item').toggleClass('_open-mobile-dropdown');
         }
     });
 

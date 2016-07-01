@@ -4457,7 +4457,7 @@
         left: 0;
         right: 0;
         z-index: 5;
-        background-color: #fff;
+        background-color: fade(@nav-background-color, 97%);
         box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.1);
     }
     ._main-navigation-dropdown .dropdown_menu .container{
@@ -4472,6 +4472,7 @@
 
     ._main-navigation-dropdown .main-navigation__sub-item-list{
         position: relative;
+        background: none;
     }
 
     ._main-navigation-dropdown .main-navigation__items-wrp{
@@ -4480,7 +4481,7 @@
 
 
     ._main-navigation-dropdown .main-navigation__sub-item-link{
-        color: #000;
+        color: @nav-link-hover-color;
         box-shadow: none;
     }
 
@@ -4495,7 +4496,7 @@
     }
     ._main-navigation-dropdown ul.main-navigation__sub-item-list._sub li a:before{
         content: "›";
-        color: #7ac6e1;
+        color: @main-color;
         font-size: 24px;
         padding-right: 5px;
         position: absolute;
@@ -4504,14 +4505,10 @@
         font-weight: 700;
     }
 
-    ._main-navigation-dropdown ul.main-navigation__sub-item-list._sub {
-        border-top: 0 solid white;
-        box-shadow: none;
 
-    }
 
     ._main-navigation-dropdown ul.main-navigation__sub-item-list {
-        border-top: 0 solid white;
+        border-top: none;
         box-shadow: none;
     }
 
@@ -4544,17 +4541,24 @@
 
 
 @media (min-width: 992px){
-    ._main-navigation-dropdown .touch .main-navigation__item._sub .main-navigation__open-sub-menu-link:before{
+    .touch ._main-navigation-dropdown .main-navigation__item._sub .main-navigation__open-sub-menu-link:before{
         line-height: 1;
+
     }
-    ._main-navigation-dropdown .touch .main-navigation__item._sub .main-navigation__open-sub-menu-link {
+    .touch ._main-navigation-dropdown .tablet-arrow .main-navigation__open-sub-menu-link {
         display: block;
         position: absolute;
         width: 38px;
         border: none;
         top: -45px;
-        height: 30px!important;
+        height: 30px !important;
         width: 30px;
+    }
+}
+
+@media (max-width: 992px){
+    .dropdown_menu ul.main-navigation__sub-item-list._sub a {
+        padding-left: 80px;
     }
 }
 
