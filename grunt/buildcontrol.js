@@ -20,7 +20,7 @@ module.exports = {
     less: {
         options: {
             dir: '<%= lessFolder %>',
-            branch: 'less'
+            branch: 'mosa'
         }
     }
 };
