@@ -13,6 +13,12 @@ jQuery(function($) {
     var $openSubMenuLink = $('.js__main-navigation__open-sub-menu-link');
     var $mainNavigationItemsList = $mainNavigation.find('.js__main-navigation__items-list').children('li');
 
+    var $mainNavigationItemsListSub = ('.main-navigation__item._sub');
+
+$('._main-navigation-dropdown .main-navigation__item._sub').hover(
+function(){$(this).toggleClass('open');}
+);
+
     // Cleanup function to clean unneeded classes
     var cleanup = function cleanup() {
         if ($mainNavigationItemsList.hasClass('_open-mobile-dropdown')) {
